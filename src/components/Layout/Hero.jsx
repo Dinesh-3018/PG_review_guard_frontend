@@ -3,6 +3,7 @@ import React from "react";
 // import { BsFillPlayFill } from "react-icons/bs";
 import HeroImage from "../../assets/HeroImage.svg";
 import HeroForm from "../Forms/HeroForm";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Hero = () => {
   return (
@@ -20,9 +21,9 @@ const Hero = () => {
             blanditiis amet laborum cumque sequi consequatur?
           </p>
           <div className="flex items-center mb-10">
-            <button className=" bg-blue text-white font-bold text-xs p-3 px-7 rounded-lg mr-6 shadow-lg">
-              Get Started
-            </button>
+            <Link to="/listings" className=" bg-blue text-white font-bold text-xs p-3 px-7 rounded-lg mr-6 shadow-lg">
+              Explore PGs
+            </Link>
             {/* <button className=" bg-blue text-white font-bold text-xs p-3  rounded-full shadow-lg">
               <BsFillPlayFill className="text-lg" />
             </button> */}

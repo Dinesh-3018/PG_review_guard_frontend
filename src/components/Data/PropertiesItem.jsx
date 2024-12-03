@@ -66,7 +66,7 @@ const PropertiesItem = ({
               </button>
             </Link>
             <h1 className="font-Poppins text-md text-blue font-semibold pl-1 py-1">
-              {`AED ${price}`}
+              {`RS ${price}`}
               <span className="font-Poppins text-liteBlue text-xs">
                 /{rentType}
               </span>

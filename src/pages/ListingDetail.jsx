@@ -15,6 +15,7 @@ const ListingDetail = () => {
   const divRef = useRef();
 
   const { data, isFetching, error } = useGetProperyDetailsQuery(listingId);
+  console.log(data);
 
   useEffect(() => {
     divRef.current.scrollIntoView({ behavior: "smooth" });
@@ -29,23 +30,21 @@ const ListingDetail = () => {
         <div className="my-20">
           {!isFetching && !error && (
             <PropertyDetailItems
-              key={data?.externalID}
-              id={data?.externalID}
-              numOfBed={data?.rooms}
-              numOfBath={data?.baths}
-              size={data?.area}
-              price={data?.price}
-              address={data?.title}
-              image={data?.coverPhoto?.url}
-              state={data?.state}
-              rentType={data?.rentFrequency}
-              description={data?.description}
+              key={data?.id}
+              id={data?.id}
+          
+              price={data?.current_price}
+              address={data?.address}
+              image={data?.assets[0]?.imageUrl}
+              state={data?.city}
+              rentType={data?.pricing_plan}
+              description={data?.address}
               amenities={data?.amenities}
-              photos={data?.photos}
-              phoneNumber={data?.phoneNumber}
-              agencyName={data?.agency?.name}
-              contactName={data?.contactName}
-              logo={data?.agency?.logo?.url}
+              photos={data?.assets}
+              phoneNumber={"0422-444-009"}
+              agencyName={data?.site_name}
+              contactName={data?.site_name}
+              reviews={data?.reviews}
             />
           )}
           {isFetching && <Loader />}

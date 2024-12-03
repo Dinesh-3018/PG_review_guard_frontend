@@ -91,9 +91,9 @@ const MainHeader = () => {
     <header className="z-10 w-full fixed bg-white top-0 p-4 px-6 lg:px-20 ">
       <nav className="flex lg:flex items-center justify-between px-6  font-Poppins">
         <div className="flex  items-center ">
-          <div className="w-44">
+          <Link to="/" className="w-44">
             <h1 className=" font-semibold text-grey-700">Pg Review Gaurd</h1>
-          </div>
+          </Link>
 
         </div>
         <ul className=" hidden lg:flex px-6 text-ash  ">
