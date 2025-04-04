@@ -160,9 +160,9 @@ const PropertyDetailItems = ({
             <div className="mx-8 mb-6 overflow-hidden">
               <div className="flex justify-center items-center mb-8">
                 <hr className="w-20 md:w-30 lg:w-52 text-[#ebebeb]" />
-                <h1 className="font-Poppins uppercase font-bold text-2xl text-blue mx-0 md:mx-10 text-center">
+                {/* <h1 className="font-Poppins uppercase font-bold text-2xl text-blue mx-0 md:mx-10 text-center">
                   Reviews
-                </h1>
+                </h1> */}
                 <hr className="w-20 md:w-30 lg:w-52 text-[#ebebeb]" />
               </div>
 
@@ -180,22 +180,35 @@ const PropertyDetailItems = ({
                         </div>
                         <div>
                           <h3 className="font-bold text-lg">{review.displayName}</h3>
+                          {console.log(review.rating)
+                          }
                           <div className="flex items-center mt-1">
-                            {[...Array(5)].map((_, i) => (
-                              <svg
-                                key={i}
-                                className={`w-4 h-4 ${i < review.rating ? "text-yellow-400" : "text-gray-300"}`}
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                              </svg>
-                            ))}
+                            {[...Array(5)].map((_, i) => {
+                              const isFilled = review?.rating && i < review.rating;
+                              return (
+                                <svg
+                                  key={i}
+                                  className="w-4 h-4 ms-1"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill={isFilled ? "#FACC15" : "#D1D5DB"}
+                                  viewBox="0 0 22 20"
+                                >
+                                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 
+        1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 
+        9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 
+        1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 
+        2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 
+        0 0 .387-1.575Z"/>
+                                </svg>
+                              );
+                            })}
                             <span className="ml-2 text-sm text-gray-500">
-                              {review?.relativePublishTime}
+                              {review?.relativePublishTime ?? "N/A"}
                             </span>
                           </div>
+
+
                         </div>
                       </div>
                       <p className="text-gray-700">{review.text}</p>

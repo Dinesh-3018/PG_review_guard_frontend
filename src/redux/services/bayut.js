@@ -16,7 +16,7 @@ export const bayutApi = createApi({
 
   endpoints: (builder) => ({
     getProperyList: builder.query({
-      query: () => `/properties?page=1&page_size=15`,
+      query: () => `/properties?page=1&page_size=60`,
     }),
     getProperyDetails: builder.query({
       query: (id) => `/properties/${id}`,
